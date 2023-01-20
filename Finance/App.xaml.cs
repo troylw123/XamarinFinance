@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Finance.View;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Finance.View;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Finance
@@ -15,9 +17,17 @@ namespace Finance
             MainPage = new NavigationPage(new MainPage());
         }
 
-        protected override void OnStart()
+        protected override async void OnStart()
         {
-            // Handle when your app starts
+            string androidAppSecret = "083d55fa-b716-4807-9562-cb4d10913c31";
+            string iosAppSecret = "7bf52b37-74f9-4906-b55c-3ea8fb8ad9d9";
+            AppCenter.Start($"android={androidAppSecret};ios={iosAppSecret}", typeof(Crashes), typeof(Analytics));
+
+            bool didAppCrash = await Crashes.HasCrashedInLastSessionAsync();
+            if (didAppCrash)
+            {
+                var crashReport = await Crashes.GetLastSessionCrashReportAsync();
+            }
         }
 
         protected override void OnSleep()
