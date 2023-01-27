@@ -1,49 +1,56 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:Finance.ViewModel"
-             xmlns:behaviors="clr-namespace:Finance.View.Behaviors"
-             x:Class="Finance.View.MainPage">
-    
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="Finance.View.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:Finance.View.Behaviors"
+    xmlns:vm="clr-namespace:Finance.ViewModel"
+    Title="Finance">
+
     <ContentPage.Resources>
         <ResourceDictionary>
-            <vm:MainVM x:Key="vm"/>
-            <Style TargetType="Label" x:Key="smallTitleLabel">
-                <Setter Property="FontSize" Value="15"/>
-                <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="TextColor" Value="{StaticResource darkColor}"/>
+            <vm:MainVM x:Key="vm" />
+            <Style x:Key="smallTitleLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{StaticResource darkColor}" />
             </Style>
-            <Style TargetType="Label" x:Key="normalLabel">
-                <Setter Property="TextColor" Value="{StaticResource darkGrayColor}"/>
-                <Setter Property="FontSize" Value="12"/>
+            <Style x:Key="normalLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource darkGrayColor}" />
+                <Setter Property="FontSize" Value="12" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+
     <ContentPage.Content>
-        <ListView BindingContext="{StaticResource vm}"
-                  SeparatorVisibility="None"
-                  HasUnevenRows="true"
-                  ItemsSource="{Binding Blog.Channel.Items}">
+        <ListView
+            BindingContext="{StaticResource vm}"
+            HasUnevenRows="true"
+            ItemsSource="{Binding Blog.Channel.Items}"
+            SeparatorVisibility="None">
             <ListView.Behaviors>
-                <behaviors:ListViewBehavior/>
+                <behaviors:ListViewBehavior />
             </ListView.Behaviors>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Frame CornerRadius="10"
-                               Padding="0"
-                               Margin="10">
+                        <Frame
+                            Margin="10"
+                            Padding="0"
+                            CornerRadius="10">
                             <StackLayout>
-                                <Image Source="{Binding Enclosure.Url}"
-                                       HeightRequest="200"
-                                       Aspect="AspectFill"/>
-                                <Label Text="{Binding Title}"
-                                       Margin="20,0"
-                                       Style="{StaticResource smallTitleLabel}"/>
-                                <Label Text="{Binding Creator}"
-                                       Margin="20,0,20,10"
-                                       Style="{StaticResource normalLabel}"/>
+                                <Image
+                                    Aspect="AspectFill"
+                                    HeightRequest="200"
+                                    Source="{Binding Enclosure.Url}" />
+                                <Label
+                                    Margin="20,0"
+                                    Style="{StaticResource smallTitleLabel}"
+                                    Text="{Binding Title}" />
+                                <Label
+                                    Margin="20,0,20,10"
+                                    Style="{StaticResource normalLabel}"
+                                    Text="{Binding Creator}" />
                             </StackLayout>
                         </Frame>
                     </ViewCell>

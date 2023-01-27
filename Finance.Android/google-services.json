@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "730546132330",
+    "project_id": "xamarinfinance-913ca",
+    "storage_bucket": "xamarinfinance-913ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:730546132330:android:ee4784273ff447cc678113",
+        "android_client_info": {
+          "package_name": "com.lalorosas.Finance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "730546132330-ii340iqh607h48dricdshnmdko8lga69.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKsG0cPw1UIfaS5rtLwHfHROMQoPRiol8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "730546132330-ii340iqh607h48dricdshnmdko8lga69.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
